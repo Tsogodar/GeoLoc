@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h1>
+    <a href="/">Geolokalizacja</a>
+  </h1>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="col-md-2">Długość</th>
+      <th class="col-md-2">Szerokość</th>
+      <th class="col-md-2">Czas</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let position of positions">
+      <td>{{position.lat}}</td>
+      <td>{{position.lng}}</td>
+      <td>{{position.timestamp}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-danger btn-large pull-right mb-4" data-toggle="modal" data-target="#exampleModal" (click)="getPosition()">Wyświetl lokalizację
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Lokalizacja</h5>
+      </div>
+      <div class="modal-body">
+        Ostatnia lokalizacja:
+        <ul>
+          <li>Szerokość - {{details.lat}}</li>
+          <li>Długość - {{details.lng}}</li>
+          <li>Czas - {{details.timestamp}}</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+      </div>
+    </div>
+  </div>
+</div>
